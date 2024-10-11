@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--input id="name" placeholder=" Nhập tên" ><-->
+<input oninput="changeInput()" id = "name" placeholder=" nhập tên " value =" dat">
+<button onclick="Laydulieu()">CLick</button>
+<p id = "display"></p>
+<p id = "display2"></p>
+
+<script>
+    // các hàm hiển thij
+    // alert("hello");
+    // document.write("nội dung hiển thị");
+    // document.getElementById("display").innerText="<button>click</button>";
+    // document.getElementById("display2").innerHTML="<button>click</button>";
+    // console.log("Hello C09")
+
+
+    // //Hàm input
+    // //prompt("nội dung thông báo");
+    // // let id = 10;
+    // let ten = prompt("nhập tên của bạn");
+    // alert(ten);
+   // hàm -> hàm chỉ chạy khi nó được gọi
+//     function Laydulieu(){
+//       document.getElementById("name").value;
+//       alert("tên :" +name);
+//     }
+//
+// //confirm -> vừa in vừa output
+//     let check = confirm("bạn muốn xóa");
+//     alert(check);
+//
+    function changeInput(){
+      console.log(document.getElementById("name") )
+    }
+
+
+</script>
+
+</body>
+</html>
