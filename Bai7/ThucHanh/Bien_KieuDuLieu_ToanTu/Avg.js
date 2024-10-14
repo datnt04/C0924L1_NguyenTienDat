@@ -10,10 +10,3 @@ function result(){
 }
 alert("điểm trung bình của 3 môn là: " + avrScore());
 alert("tổng số điểm của 3 môn là : " + result());
-
-
-
-
-
-
-
