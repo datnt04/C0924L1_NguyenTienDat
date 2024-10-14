@@ -1,15 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sở thích của bạn</title>
+  <meta charset="UTF-8">
+  <title>Form</title>
 </head>
 <body>
-    <form>
-        
 
-    </form>
-    
+<fieldset>
+  <h1>SỞ THÍCH CỦA BẠN</h1>
+  <label for="name">Họ và tên</label>
+  <input type="text" id="name" name="name"><br>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email"><br>
+
+  <p>Sở Thích</p>
+  <label><input type="checkbox" name="hobby" value="sport">Thể Thao</label>
+  <label><input type="checkbox" name="hobby" value="music">Âm Nhạc</label>
+  <label><input type="checkbox" name="hobby" value="read">Đọc sách</label><br>
+  <label><input type="checkbox" name="hobby" value="surfweb">Lướt web</label>
+  <label><input type="checkbox" name="hobby" value="game">Chơi game</label>
+  <label><input type="checkbox" name="hobby" value="movie">Điện ảnh</label><br>
+  <label><input type="checkbox" name="hobby" value="travel">Du lịch</label><br><br>
+
+  <input type="submit" value="Gửi thông tin">
+  <input type="reset" value="Nhập lại">
+
+</fieldset>
+<br><br>
+<fieldset>
+  <h1>ĐĂNG KÝ HỌC VIÊN</h1>
+  <label for="name1">Họ và tên</label>
+  <input type="text" id="name1" name="name"><br>
+
+  <label for="dob">Ngày sinh</label>
+  <input type="text" id="dob" name="dob"><br>
+
+  <p>Giới tính</p>
+  <label><input type="radio" name="gender" value="male">Nam</label>
+  <label><input type="radio" name="gender" value="female">Nữ</label>
+
+  <p>Địa chỉ</p>
+  <textarea cols="50" rows="5"></textarea><br>
+
+  <label for="class">Lớp</label>
+  <select id="class" name="class">
+    <option value="">--Chọn lớp---</option>
+  </select><br>
+
+  <label for="mail">Email</label>
+  <input type="email" id="mail" name="mail"><br>
+
+  <label for="phonenumber">Điện thoại</label>
+  <input type="tel" id="phonenumber" name="phonenumber"><br>
+
+  <input type="submit" value="Đăng ký">
+  <input type="reset" value="Nhập lại">
+
+</fieldset>
 </body>
 </html>
