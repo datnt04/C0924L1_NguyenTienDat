@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính số ngày trong tháng</title>
+</head>
+<body>
+
+<h2>Nhập số tháng (1-12):</h2>
+<input type="number" id="monthInput" min="1" max="12" placeholder="Enter months">
+<button onclick="calculateDays()">Calculate the number of days
+</button>
+
+<p id="result"></p>
+
+<script>
+    function isLeapYear(year) {
+        return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+    }
+
+    function calculateDays() {
+        const month = parseInt(document.getElementById("monthInput").value);
+        const year = parseInt(document.getElementById("yearInput").value);
+        let days;
+            switch (month) {
+                case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                    days = 31;
+                    break;
+                case 4: case 6: case 9: case 11:
+                    days = 30;
+                    break;
+                case 2:
+
+                    days = isLeapYear(year) ? 29 : 28;
+                    break;
+                default:
+                    days = "InValid";
+            }
+
+
+        document.getElementById("result").innerText = "Days  this month";
+    }
+</script>
+
+</body>
+</html>
