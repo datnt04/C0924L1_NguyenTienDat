@@ -24,5 +24,5 @@ let type = check();
 
 console.log("your BMI: " + bmi);
 console.log("Type of BMI: " + type);
-alert("Chỉ số BMI của bạn là: " + bmi );
+alert("Your BMI: " + bmi );
 alert("Type of BMI: " + type);
