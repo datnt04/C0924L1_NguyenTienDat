@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let salary = Number(prompt("Nhập lương của bạn:"));
+    let tax = 0;
+
+    if (salary <= 0) {
+        console.log("Vui lòng nhập lương lớn hơn 0.");
+    } else if (salary < 9) {
+        console.log("Không tính thuế.");
+    } else if (salary >= 9 && salary < 15) {
+        tax = salary * 0.1;
+        console.log("Thuế là 10%, số tiền thuế phải nộp là:", tax);
+    } else if (salary >= 15 && salary < 30) {
+        tax = salary * 0.15;
+        console.log("Thuế là 15%, số tiền thuế phải nộp là:", tax);
+    } else {
+        console.log("Thuế là 20%, số tiền thuế phải nộp là:", tax);
+    }
+</script>
+</body>
+</html>

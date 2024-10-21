@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giá điện</title>
+</head>
+<body>
+<script>
+  let startReading = Number(prompt("Nhập số điện đầu tháng:"));
+  let endReading = Number(prompt("Nhập số điện cuối tháng:"));
+  function calculateElectricityCost(startReading, endReading) {
+  let kWh = endReading - startReading;
+  if (kWh < 0) {
+  console.log("Invalid.");
+  return;
+  }
+  let cost = kWh * 2000;
+  return cost;
+  }
+  let totalCost = calculateElectricityCost(startReading, endReading);
+  if (totalCost !== undefined) {
+  console.log("Tổng số tiền điện phải trả:", totalCost);
+  }
+</script>
+</body>
+</html>

@@ -10,13 +10,14 @@
    let test = prompt(" Enter test exam score");
    let midterm = prompt("enter midterm exam score ");
    let final = prompt("enter final exam score ")
+   let totalScore = total();
 
-   function Total(){
+   function total(){
      return (test + midterm + final)/3;
    }
-   if( Total > 9){
+   if( totalScore > 9){
      console.log(" level A");
-   }else if ( Total > 7 && Total < 9 ){
+   }else if ( totalScore > 7 && totalScore < 9 ){
      console.log("level B");
    }else {
      console.log("level C");

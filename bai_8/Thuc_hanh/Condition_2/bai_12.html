@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let principal = Number(prompt("Nhập số tiền ban đầu:"));
+    let months = Number(prompt("Nhập số tháng cho vay:"));
+    let monthlyRate = Number(prompt("Nhập lãi suất hàng tháng:"));
+    function compoundInterest(principal, months, monthlyRate) {
+        return principal * Math.pow((1 + monthlyRate / 100), months);
+    }
+
+    let interest = compoundInterest(principal, months, monthlyRate) - principal;
+
+    console.log("Số tiền gốc:", principal);
+    console.log("Số tiền lãi sau", months, "tháng là:", interest);
+    console.log("Tổng số tiền sau", months, "tháng là:", (principal + interest));
+</script>
+
+</body>
+</html>
