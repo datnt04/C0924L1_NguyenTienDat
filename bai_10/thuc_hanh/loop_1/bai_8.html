@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Đoán Số</title>
+</head>
+<body>
+<h1>Game Đoán Số</h1>
+<button onclick="startGame()">Chơi</button>
+
+<script>
+  function startGame() {
+    let minRange = parseInt(prompt("Nhập giá trị nhỏ nhất của khoảng đoán:"));
+    let maxRange = parseInt(prompt("Nhập giá trị lớn nhất của khoảng đoán:"));
+
+
+    if (isNaN(minRange) || isNaN(maxRange) || minRange >= maxRange) {
+      alert("Không đúng thử lại.(sai khooangr)");
+      return;
+    }
+
+    let randomNumber = Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
+
+    let guessed = false;
+    let attempts = 0;
+
+    while (!guessed) {
+      let guess = parseInt(prompt("Hãy đoán một số trong khoảng từ " + minRange + " đến " + maxRange + ":"));
+
+      if (isNaN(guess)) {
+        alert("nhập cho đúng");
+        continue;
+      }
+
+      attempts++;
+
+
+      if (guess === randomNumber) {
+        alert("Đoán đúng rối đó em hihi " + attempts + " lần đoán.");
+        guessed = true;
+      } else if (guess < randomNumber) {
+        alert("Số bạn đoán nhỏ hơn số bí mật. Thử lại.");
+      } else {
+        alert("Số bạn đoán lớn hơn số bí mật. Thử lại.");
+      }
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function fibonacciSeries(n) {
+        let a = 0, b = 1, next;
+
+        console.log(a);
+        console.log(b);
+
+        for (let i = 3; i <= n; i++) {
+            next = a + b;
+            console.log(next);
+            a = b;
+            b = next;
+        }
+    }
+
+    fibonacciSeries(20);
+</script>
+</body>
+</html>

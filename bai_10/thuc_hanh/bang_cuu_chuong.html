@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Cửu Chương</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<h1 style="text-align: center;">Bảng Cửu Chương</h1>
+<table id="multiplicationTable"></table>
+
+<script>
+
+    function createMultiplicationTable() {
+        let table = document.getElementById("multiplicationTable");
+
+
+        for (let i = 2; i <= 9; i++) {
+            let row = document.createElement("tr");
+            for (let j = 1; j <= 9; j++) {
+                let cell = document.createElement("td");
+                cell.innerText = `${i} x ${j} = ${i * j}`;
+                row.appendChild(cell);
+            }
+            table.appendChild(row);
+        }
+    }
+
+
+    window.onload = createMultiplicationTable;
+</script>
+</body>
+</html>
