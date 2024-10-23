@@ -20,6 +20,7 @@
         let sum = 0;
 
         for (let i = 0; i < n; i++) {
+            let fibNumber = fibonacci(i);
             sum += fibNumber;
         }
 
@@ -27,8 +28,7 @@
     }
 
     let totalSum = sumOfFirstNFibonacci(20);
-    console.log("Tổng của 20 số đầu tiên trong dãy Fibonacci là:", totalSum);
-
+    console.log("Tổng của các số Fibonacci nhỏ hơn 20 là:", totalSum);
 </script>
 </body>
 </html>

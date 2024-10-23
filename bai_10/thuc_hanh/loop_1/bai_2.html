@@ -6,16 +6,11 @@
 </head>
 <body>
 <script>
-  let temperature = Number(prompt("Nhập nhiệt độ hiện tại:"));
-
-  if (temperature > 100) {
-    alert("Nhiệt độ quá cao, giảm nhiệt độ.");
-  } else if (temperature < 20) {
-    alert("Nhiệt độ quá thấp, tăng nhiệt độ.");
-  } else {
-    alert("Nhiệt độ bình thường.");
-  }
-
+    let temp = +prompt("Nhập nhiệt độ");
+    while (temp < 20 || temp > 100) {
+        temp = +prompt("Hãy nhập lại nhiệt độ");
+    }
+    prompt("Nhiệt độ bạn nhập là: " + temp + " độ");
 </script>
 </body>
 </html>
