@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>In dãy Fibonaci</title>
+</head>
+<body>
+<h2>In dãy Fibonaci</h2>
+
+<script>
+  let n = +prompt("Nhập số lượng số trong dãy Fibonaci muốn in ra màn hình");
+  let a = 0, b = 1, c;
+  let count = 0;
+
+  while (count < n) {
+    c = a + b;
+    a = b;
+    b = c;
+    count++;
+    document.write(a + "<br>");
+  }
+
+
+</script>
+</body>
+</html>

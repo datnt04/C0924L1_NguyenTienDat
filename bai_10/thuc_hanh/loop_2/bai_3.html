@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let triangle1 = '';
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j <= i; j++) {
+      triangle1 += '*';
+    }
+    triangle1 += '\n';
+  }
+  console.log(triangle1);
+  let triangle2 = '';
+  for (let i = 5; i > 0; i--) {
+    for (let j = 1; j <= i; j++) {
+      triangle2 += '*';
+    }
+    triangle2 += '\n';
+  }
+  console.log(triangle2);
+
+  let triangle3 = '';
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 4 - i; j++) {
+      triangle3 += ' ';
+    }
+    for (let k = 0; k <= i; k++) {
+      triangle3 += '*';
+    }
+    triangle3 += '\n';
+  }
+  console.log(triangle3);
+
+
+  let triangle4 = '';
+  for (let i = 5; i > 0; i--) {
+    for (let j = 0; j < 5 - i; j++) {
+      triangle4 += ' ';
+    }
+    for (let k = 0; k < i; k++) {
+      triangle4 += '*';
+    }
+    triangle4 += '\n';
+  }
+  console.log(triangle4);
+</script>
+</body>
+</html>
