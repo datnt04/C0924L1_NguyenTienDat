@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = prompt("Nhập vào chuỗi các số ");
+    let numbers = str.split(",").map(Number);
+    let negativeCount = 0;
+
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] < 0) {
+            negativeCount++;
+        }
+    }
+
+    console.log("Số lượng số nguyên âm là: " + negativeCount);
+</script>
+</body>
+</html>

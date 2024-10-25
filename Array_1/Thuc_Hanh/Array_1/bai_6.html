@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = [];
+    for (let i = 0; i < 10; i++) {
+        array[i] = parseInt(prompt("Nhập phần tử thứ " + (i + 1) + ":"));
+    }
+
+    let V = parseInt(prompt("Nhập vào số nguyên V:"));
+    let found = array.includes(V);
+
+    if (found) {
+        console.log(V + " is in the array");
+    } else {
+        console.log(V + " is not in the array");
+    }
+</script>
+</body>
+</html>

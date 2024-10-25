@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = [];
+    for (let i = 0; i < 10; i++) {
+        array[i] = parseInt(prompt("Nhập phần tử thứ " + (i + 1) + ":"));
+    }
+
+    let V = parseInt(prompt("Nhập vào số nguyên V:"));
+    let index = array.indexOf(V);
+
+    if (index !== -1) {
+        for (let i = index; i < array.length - 1; i++) {
+            array[i] = array[i + 1];
+        }
+        array[array.length - 1] = 0;
+        console.log("Mảng sau khi xoá " + V + ": " + array);
+    } else {
+        console.log(V + " không thuộc mảng");
+    }
+</script>
+</body>
+</html>

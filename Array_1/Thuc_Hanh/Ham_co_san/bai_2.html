@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let num = prompt("Enter string of number:");
+  let result2 = "";
+
+  for (let i = 0; i < num.length; i++) {
+    result2 += num[i];
+    if (num[i] % 2 === 0 && num[i + 1] % 2 === 0) {
+      result2 += "-";
+    }
+  }
+
+  console.log(result2);
+
+</script>
+</body>
+</html>

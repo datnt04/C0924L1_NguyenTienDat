@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+let array = [];
+for (let i = 0; i < 10; i++) {
+array[i] = parseInt(prompt("Nhập phần tử thứ " + (i + 1) + ":"));
+}
+
+let max = array[0];
+let position = 0;
+
+for (let i = 1; i < array.length; i++) {
+if (array[i] > max) {
+max = array[i];
+position = i;
+}
+}
+console.log("Phần tử lớn nhất là: " + max + " tại vị trí: " + position);
+
+
+
+</script>
+</body>
+</html>
