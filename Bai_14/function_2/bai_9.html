@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function charCountInArray() {
+    let arrStr = prompt("Nhập mảng ký tự, cách nhau bởi dấu phẩy:");
+    let arr = [];
+    let char = "";
+
+    for (let i = 0; i < arrStr.length; i++) {
+      if (arrStr[i] === ',') {
+        arr.push(char);
+        char = "";
+      } else {
+        char += arrStr[i];
+      }
+    }
+    arr.push(char);
+
+    let searchChar = prompt("Nhập ký tự muốn kiểm tra:");
+    let count = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === searchChar) {
+        count++;
+      }
+    }
+
+    if (count > 0) {
+      console.log("Ký tự xuất hiện " + count + " lần");
+    } else {
+      console.log("-1");
+    }
+  }
+
+  charCountInArray();
+</script>
+</body>
+</html>

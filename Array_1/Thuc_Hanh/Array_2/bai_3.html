@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+
+
+  let n = +prompt("Độ dài của mảng là: ");
+  let array = new Array(n);
+  let count = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    array[i] = prompt("Nhập ký tự bất kỳ thứ: " + i);
+  }
+  console.log(array);
+
+  let str = [];
+  for (let i = 0; i < array.length; i++) {
+
+    if (isNaN(array[i])) {
+      count++;
+      str.push(array[i]);
+    }
+  }
+  console.log(`Số lượng ký tự trong mảng là: ${count}. Các ký tự lần lượt là: ${str.join()} `);
+
+</script>
+
+</body>
+</html>

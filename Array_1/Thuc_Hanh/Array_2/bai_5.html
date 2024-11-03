@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body><script>
+  const N = +prompt("Độ dài của 2 chuỗi là:");
+  let array = new Array(N);
+  let array2 = new Array(N);
+
+  for (let i = 0; i < array.length; i++) {
+    array[i] = prompt("Nhập ký tự thứ " + i);
+  }
+  document.write(`Mảng đầu tiên là: ${array} <br>`);
+
+
+  for (let i = 0; i < array2.length; i++) {
+    array2[i] = prompt("Nhập ký tự thứ " + i);
+  }
+
+  document.write(`Mảng thứ hai là: ${array2} <br>`);
+
+  //kiểm tra
+  let count = 0;
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array2.length; j++) {
+      if (array[i] === array2[j]) {
+        count++
+      }
+    }
+  }
+
+  document.write(`<br> Số lượng ký tự trùng nhau giữa hai mảng là ${count}/${N}`);
+
+  if (count === N) {
+    document.write(` <br> Hai mảng giống nhau`);
+  } else {
+    document.write(`<br> Hai mảng không giống nhau`);
+  }
+
+</script>
+</body>
+</html>

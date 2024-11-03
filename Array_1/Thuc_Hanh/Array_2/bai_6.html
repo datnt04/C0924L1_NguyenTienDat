@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let n = +prompt("Độ dài của mảng là: ");
+  let array = new Array(n);
+  let count = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    array[i] = prompt("Nhập ký tự bất kỳ thứ: " + i);
+  }
+
+  let str = array.toString();
+  let newStr = [];
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === "-") {
+      newStr.push("_");
+    } else {
+      newStr.push(str[i]);
+    }
+  }
+
+  console.log(array);
+  console.log(str);
+  console.log("Kết quả là: " + newStr.join(""));
+</script>
+</body>
+</html>

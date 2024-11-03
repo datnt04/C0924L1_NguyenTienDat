@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  while (true) {
+    let so = +prompt("Nhp số cần tính: ");
+    if (isNaN(so)) {
+      alert("Lỗi cú pháp, vui lòng thử lại ");
+    }else{
+      alert(tinhBinhPhuong(so));
+      break;
+    }
+  }
+  function tinhBinhPhuong(number){
+    return (number*number).toFixed(2);
+  }
+</script>
+</body>
+</html>

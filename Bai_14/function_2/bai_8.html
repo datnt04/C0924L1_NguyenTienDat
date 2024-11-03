@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function reverseArray() {
+    let arrStr = prompt("Nhập mảng các số nguyên, cách nhau bởi dấu phẩy:");
+    let arr = [];
+    let num = "";
+
+    for (let i = 0; i < arrStr.length; i++) {
+      if (arrStr[i] === ',') {
+        arr.push(parseInt(num));
+        num = "";
+      } else {
+        num += arrStr[i];
+      }
+    }
+    arr.push(parseInt(num));
+    let reversedArr = [];
+    for (let i = arr.length - 1; i >= 0; i--) {
+      reversedArr.push(arr[i]);
+    }
+    console.log("Mảng sau khi đảo ngược là:", reversedArr);
+  }
+  reverseArray();
+</script>
+</body>
+</html>
