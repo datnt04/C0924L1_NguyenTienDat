@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let student1 = {
+        id: 1,
+        name: "qer",
+        age: 20,
+        //hành vi(hành động)/hàm => phương thức (method)
+        study : function(subject){
+            console.log("đi xe máy ")
+        }
+
+    }
+    console.log(student1.name);
+    student1.study("toán");
+    console.log()
+
+
+    class Student{
+        constructor(id,name,age) {
+          this.id = id ;
+          this.name = name;
+          this.age = age;
+        }
+        study(subject){
+            console.log(" hoc vien dang hoc mon" + subject);
+        }
+    }
+    let student1 = new Student(1,'dat',25);
+
+</script>
+</body>
+</html>

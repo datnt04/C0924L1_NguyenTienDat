@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas
+        style = 'background-color: yellow'
+        width = '400' height = '200' ></canvas>
+
+<script>
+    class Rectangle {
+        constructor(width, height) {
+            this._width = width;
+            this._height = height;
+        }
+
+        get width() {
+            return this._width;
+        }
+        set width(newWidth) {
+            if (newWidth > 0) {
+                this._width = newWidth;
+            } else {
+                console.error("Chiều rộng phải là số dương!");
+            }
+        }
+
+        get height() {
+            return this._height;
+        }
+        set height(newHeight) {
+            if (newHeight > 0) {
+                this._height = newHeight;
+            } else {
+                console.error("Chiều dài phải là số dương!");
+            }
+        }
+
+        getArea() {
+            return this.width * this.height;
+        }
+
+        getPerimeter() {
+            return 2 * (this.width + this.height);
+        }
+
+    }
+
+
+    let myRectangle = new Rectangle(-10, 5);
+    console.log("Diện tích :", myRectangle.getArea());
+    console.log("Chu vi :", myRectangle.getPerimeter());
+
+    myRectangle.width = 1;
+    myRectangle.height = 15;
+
+    console.log("Diện tích sau khi thay đổi:", myRectangle.getArea());
+    console.log("Chu vi sau khi thay đổi:", myRectangle.getPerimeter());
+</script>
+</body>
+</html>
