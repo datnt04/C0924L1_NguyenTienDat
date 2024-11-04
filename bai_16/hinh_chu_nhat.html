@@ -49,19 +49,20 @@
     }
 
 
-    let canvas = document.getElementById('canvas');
-    let context = canvas.getContext('2d');
-    context.fillRect(40,40,60,40);
 
-    let myRectangle = new Rectangle(-10, 5);
+
+    let myRectangle = new Rectangle(10, 5);
     console.log("Diện tích :", myRectangle.getArea());
     console.log("Chu vi :", myRectangle.getPerimeter());
 
-    myRectangle.width = 1;
-    myRectangle.height = 15;
+    myRectangle.width = 40;
+    myRectangle.height = 60;
 
     console.log("Diện tích sau khi thay đổi:", myRectangle.getArea());
     console.log("Chu vi sau khi thay đổi:", myRectangle.getPerimeter());
+    let canvas = document.getElementById('canvas');
+    let context = canvas.getContext('2d');
+    context.fillRect(40,40,myRectangle.width,myRectangle.height);
 </script>
 </body>
 </html>
