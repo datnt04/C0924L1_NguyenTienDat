@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OOP-ỨNG DỤNG QUẢN LÝ SẢN PHẨM</title>
+</head>
+<body>
+<h1>OOP - ỨNG DỤNG QUẢN LÝ SẢN PHẨM</h1>
+
+<input id="code" placeholder="Nhập mã sản phẩm" />
+<input id="name" placeholder="Nhập tên sản phẩm" />
+<input id="price" placeholder="Nhập giá sản phẩm" />
+<button onclick="addProduct()">Thêm sản phẩm</button>
+
+<p>
+    <span>Tổng số lượng sản phẩm là:</span>
+    <b style="color: red"><span id="count"></span></b>
+</p>
+
+<div id="table"></div>
+
+<script>
+    class Product {
+        constructor(code, name, price) {
+            this.code = code;
+            this.name = name;
+            this.price = price;
+        }
+    }
+
+    let productList = [
+        new Product("SS-001", "SamSung", 200),
+        new Product("IP-002", "iPhone", 2000),
+        new Product("XI-003", "Xiaomi", 100),
+        new Product("HW-004", "Huawei", 150),
+        new Product("OP-005", "Oppo", 120),
+        new Product("VV-006", "Vivo", 80)
+    ];
+
+    // Hiển thị bảng sản phẩm
+    function showTable() {
+        let tableString = `
+        <table border="1" style="width: 100%; text-align: center">
+            <tr>
+                <th>STT</th>
+                <th>Mã sản phẩm</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá thành</th>
+                <th>Chỉnh sửa</th>
+                <th>Xóa</th>
+            </tr>`;
+
+        productList.forEach((product, index) => {
+            tableString += `
+            <tr>
+                <td>${index + 1}</td>
+                <td>${product.code}</td>
+                <td>${product.name}</td>
+                <td>${product.price}</td>
+                <td><button onclick="editProduct(${index})">Chỉnh sửa</button></td>
+                <td><button onclick="deleteProduct(${index})">Xóa</button></td>
+            </tr>`;
+        });
+
+        tableString += `</table>`;
+        document.getElementById("table").innerHTML = tableString;
+        document.getElementById("count").innerHTML = productList.length;
+    }
+
+    function addProduct() {
+        let code = document.getElementById("code").value.trim();
+        let name = document.getElementById("name").value.trim();
+        let price = document.getElementById("price").value.trim();
+
+        if (code && name && price) {
+            productList.push(new Product(code, name, parseFloat(price)));
+            showTable();
+            document.getElementById("code").value = "";
+            document.getElementById("name").value = "";
+            document.getElementById("price").value = "";
+        } else {
+            alert("Vui lòng nhập đầy đủ thông tin sản phẩm.");
+        }
+    }
+
+    function editProduct(index) {
+        let product = productList[index];
+        let newCode = prompt("Nhập mã sản phẩm mới:", product.code) || product.code;
+        let newName = prompt("Nhập tên sản phẩm mới:", product.name) || product.name;
+        let newPrice = prompt("Nhập giá sản phẩm mới:", product.price) || product.price;
+
+        if (newCode && newName && newPrice) {
+            productList[index] = new Product(newCode, newName, parseFloat(newPrice));
+            showTable();
+        } else {
+            alert("Vui lòng nhập đầy đủ thông tin sản phẩm.");
+        }
+    }
+
+    function deleteProduct(index) {
+        let confirmation = confirm(`Bạn có chắc chắn muốn xóa sản phẩm "${productList[index].name}" không?`);
+        if (confirmation) {
+            productList.splice(index, 1);
+            showTable();
+        }
+    }
+
+    showTable();
+</script>
+</body>
+</html>

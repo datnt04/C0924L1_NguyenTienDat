@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Switch Interaction</title>
+</head>
+<body>
+
+<h1>Light Switch Interaction</h1>
+
+<div id="lightbulb">OFF</div>
+
+<button onclick="toggleLight()">Toggle Light</button>
+
+<script>
+    class Lightbulb {
+        constructor() {
+            this.isOn = false;
+        }
+
+        toggle() {
+            this.isOn = !this.isOn;
+        }
+    }
+
+    const lightbulb = new Lightbulb();
+
+    function updateLightbulbDisplay() {
+        const lightbulbElement = document.getElementById('lightbulb');
+        if (lightbulb.isOn) {
+            lightbulbElement.innerText = 'ON';
+            lightbulbElement.style.backgroundColor = 'green';
+        } else {
+            lightbulbElement.innerText = 'OFF';
+            lightbulbElement.style.backgroundColor = '';
+        }
+    }
+
+    function toggleLight() {
+        lightbulb.toggle();
+        updateLightbulbDisplay();
+    }
+
+    updateLightbulbDisplay();
+</script>
+
+</body>
+</html>
