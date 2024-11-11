@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isAscendingArray(arr) {
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[i] <= arr[i - 1]) {
+                return "False";
+            }
+        }
+        return "True";
+    }
+
+    let n = parseInt(prompt("Enter the length of arr"));
+
+    if (isNaN(n) || n > 20 || n <= 0) {
+        console.log("Invalid length!");
+    } else {
+        let arr = [];
+        for (let i = 0; i < n; i++) {
+            let element = prompt(`Enter the ${i + 1}th element:`);
+            arr.push(parseInt(element));
+        }
+
+        console.log("Arr:", arr);
+
+        console.log(isAscendingArray(arr));
+    }
+</script>
+</body>
+</html>
