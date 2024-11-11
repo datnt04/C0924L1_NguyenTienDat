@@ -6,30 +6,51 @@
 </head>
 <body>
 <script>
-    function isAscendingArray(arr) {
+    function isStrictlyAscendingArray(arr) {
+        if (arr.length < 2) return "True";
+        const difference = arr[1] - arr[0];
+
         for (let i = 1; i < arr.length; i++) {
-            if (arr[i] <= arr[i - 1]) {
+            if (arr[i] - arr[i - 1] !== difference) {
                 return "False";
             }
         }
         return "True";
     }
 
-    let n = parseInt(prompt("Enter the length of arr"));
+    let n;
+    while (true) {
+        n = parseInt(prompt("Enter the length of the array (1 <= n <= 20):"));
+        if (!isNaN(n) && n > 0 && n <= 20) {
+            break;
+        }
+        alert("Invalid length! Please enter a number between 1 and 20.");
+    }
 
-    if (isNaN(n) || n > 20 || n <= 0) {
-        console.log("Invalid length!");
-    } else {
-        let arr = [];
+    let arr;
+    while (true) {
+        arr = [];
         for (let i = 0; i < n; i++) {
-            let element = prompt(`Enter the ${i + 1}th element:`);
-            arr.push(parseInt(element));
+            let element;
+            while (true) {
+                element = parseFloat(prompt(`Enter element ${i + 1}:`));
+                if (!isNaN(element)) {
+                    arr.push(element);
+                    break;
+                }
+                alert("Invalid element!");
+            }
         }
 
-        console.log("Arr:", arr);
-
-        console.log(isAscendingArray(arr));
+        if (isStrictlyAscendingArray(arr) === "True") {
+            break;
+        } else {
+            alert("Array is not strictly ascending with equal differences!.");
+        }
     }
+
+    console.log("Array entered:", arr);
+    console.log("Is the array strictly ascending with equal differences?", isStrictlyAscendingArray(arr));
 </script>
 </body>
 </html>

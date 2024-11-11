@@ -5,6 +5,36 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    function checkTriangle(x, y, z) {
+        if (x <= 0 || y <= 0 || z <= 0 || x + y <= z || x + z <= y || y + z <= x) {
+            return "Không phải là cạnh của 1 tam giác";
+        }
 
+        if (x * x + y * y === z * z || x * x + z * z === y * y || y * y + z * z === x * x) {
+            return "Là 3 cạnh của tam giác vuông";
+        }
+
+        return "Chỉ là 3 cạnh của một tam giác";
+    }
+
+    function getValidSide(promptMessage) {
+        let side;
+        while (true) {
+            side = prompt(promptMessage);
+            side = parseFloat(side);
+            if (!isNaN(side) && side > 0) {
+                return side;
+            }
+            alert("Giá trị không hợp lệ! Vui lòng nhập một số dương.");
+        }
+    }
+
+    let x = getValidSide("Nhập cạnh thứ nhất:");
+    let y = getValidSide("Nhập cạnh thứ hai:");
+    let z = getValidSide("Nhập cạnh thứ ba:");
+
+    console.log(checkTriangle(x, y, z));
+</script>
 </body>
 </html>
