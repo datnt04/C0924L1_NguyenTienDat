@@ -7,7 +7,8 @@
 <body>
 <script>
     function isStrictlyAscendingArray(arr) {
-        if (arr.length < 2) return "True";
+        if (arr.length < 2)
+            return "True";
         const difference = arr[1] - arr[0];
 
         for (let i = 1; i < arr.length; i++) {

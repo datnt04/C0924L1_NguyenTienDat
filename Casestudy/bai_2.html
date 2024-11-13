@@ -6,35 +6,44 @@
 </head>
 <body>
 <script>
-    function checkTriangle(x, y, z) {
-        if (x <= 0 || y <= 0 || z <= 0 || x + y <= z || x + z <= y || y + z <= x) {
-            return "Không phải là cạnh của 1 tam giác";
-        }
+    function isValidTriangle(x, y, z) {
+        return (x + y > z && x + z > y && y + z > x);
+    }
 
+    function checkTriangleType(x, y, z) {
         if (x * x + y * y === z * z || x * x + z * z === y * y || y * y + z * z === x * x) {
-            return "Là 3 cạnh của tam giác vuông";
+            return "Are the 3 sides of a right triangle";
         }
-
-        return "Chỉ là 3 cạnh của một tam giác";
+        return "Just 3 sides of nomal triangle";
     }
 
     function getValidSide(promptMessage) {
         let side;
-        while (true) {
+        do {
             side = prompt(promptMessage);
-            side = parseFloat(side);
-            if (!isNaN(side) && side > 0) {
-                return side;
+
+            if (side !== null && parseFloat(side) > 0) {
+                return parseFloat(side);
             }
-            alert("Giá trị không hợp lệ! Vui lòng nhập một số dương.");
-        }
+            alert("Invalid value!");
+        } while (true);
     }
 
-    let x = getValidSide("Nhập cạnh thứ nhất:");
-    let y = getValidSide("Nhập cạnh thứ hai:");
-    let z = getValidSide("Nhập cạnh thứ ba:");
+    let x, y, z;
+    let isTriangle = false;
 
-    console.log(checkTriangle(x, y, z));
+    do {
+        x = getValidSide("enter first side:");
+        y = getValidSide("enter second side:");
+        z = getValidSide("enter third side:");
+
+        if (isValidTriangle(x, y, z)) {
+            isTriangle = true;
+        } else {
+            alert("The three joined sides do not form a triangle. Input again.");
+        }
+    } while (!isTriangle);
+    console.log(checkTriangleType(x, y, z));
 </script>
 </body>
 </html>

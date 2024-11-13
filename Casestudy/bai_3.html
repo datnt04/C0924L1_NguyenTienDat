@@ -5,6 +5,46 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    function isPalindromeArray(arr) {
+        let isPalindrome = true;
 
+        for (let i = 0; i < arr.length / 2; i++) {
+            if (arr[i] !== arr[arr.length - 1 - i]) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        if (isPalindrome) {
+            return "OK";
+        } else {
+            return "NO";
+        }
+    }
+
+    let n;
+    do {
+        n = prompt("Enter the number of elements in the array:");
+        n = parseInt(n);
+    } while ( n <= 0 || n % 1 !== 0|| n<3);
+
+    let array = [];
+    for (let i = 0; i < n; i++) {
+        let element;
+        do {
+            element = prompt("Enter element " + (i + 1) + ":");
+            if (element != null) {
+                array.push(parseFloat(element));
+                break;
+            }
+            alert("Invalid input!");
+        } while (true);
+    }
+
+    console.log("Array entered:", array);
+
+    console.log(isPalindromeArray(array));
+</script>
 </body>
 </html>
