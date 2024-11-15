@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function inputArray() {
+        let arr = [];
+        let n;
+
+        do {
+            n = parseInt(prompt("Enter the length of the array (even number):"));
+        } while (isNaN(n) || n % 2 !== 0);
+        for (let i = 0; i < n; i++) {
+            let element = parseInt(prompt("Enter element " +(i + 1)));
+            arr.push(element);
+        }
+
+        return arr;
+    }
+
+    function checkArray(arr) {
+        for (let i = 0; i < arr.length - 1; i += 2) {
+            if (arr[i] >= arr[i + 1]) {
+                return "NO";
+            }
+        }
+        return "OK";
+    }
+
+    let array = inputArray();
+    console.log("Array after input:", array);
+    console.log("Check result:", checkArray(array));
+</script>
+</body>
+</html>

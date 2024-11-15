@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function kiemTraMang(arr) {
+        let chuSo = true;
+        let chuCai = true;
+
+        for (let i = 0; i < arr.length; i++) {
+            let item = arr[i];
+
+            if (!(item >= '0' && item <= '9')) {
+                chuSo = false;
+            }
+
+            if (!((item >= 'a' && item <= 'z') || (item >= 'A' && item <= 'Z'))) {
+                chuCai = false;
+            }
+        }
+
+        if (chuSo) {
+            return 1;
+        } else if (chuCai) {
+            return 0;
+        } else {
+            return -1;
+        }
+    }
+
+    console.log(kiemTraMang([5, 2, 8, 1, 4]));
+    console.log(kiemTraMang(['a', 'b', 'c', 'e']));
+    console.log(kiemTraMang([1, 'a', 'b', 4]));
+</script>
+</body>
+</html>

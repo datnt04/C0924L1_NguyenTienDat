@@ -7,10 +7,10 @@
 <body>
 <script>
     function gcd(a, b) {
-        while (b !== 0) {
-            [a, b] = [b, a % b];
+        if (b === 0) {
+            return a;
         }
-        return a;
+        return gcd(b, a % b);
     }
 
     function simplifyFraction(fraction) {
@@ -35,7 +35,7 @@
     do {
         fraction = prompt("Nhập phân số (dạng tử/mẫu, mẫu phải khác 0):");
 
-    } while (!fraction.match(/^\d+\/[1-9]\d*$/));
+    } while (!fraction.match(/^\d\/\d$/));
 
     let result = simplifyFraction(fraction);
 
