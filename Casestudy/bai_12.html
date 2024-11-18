@@ -26,9 +26,9 @@
     }
 
     let studentList = [
-        new Student("HV-0001", "Nguyễn Văn A", "C1022G1", "nguyenvana@gmail.com", "01/01/2004"),
-        new Student("HV-0002", "Nguyễn Văn B", "C1122G1", "nguyenvanb@gmail.com", "02/02/2004"),
-        new Student("HV-0003", "Nguyễn Thị C", "C1222G1", "nguyenthic@gmail.com", "03/03/2004")
+        new Student("HV-0001", "Nguyễn Văn A", "C1022G1", "nguyenvana@gmail.com", "01/01/2004", 2),
+        new Student("HV-0002", "Nguyễn Văn B", "C1122G1", "nguyenvanb@gmail.com", "02/02/2004", 3),
+        new Student("HV-0003", "Nguyễn Thị C", "C1222G1", "nguyenthic@gmail.com", "03/03/2004", 4)
     ];
 
     function displayStudents() {
@@ -59,30 +59,35 @@
     displayStudents();
 
     function addStudent() {
-        let id = prompt("Nhập mã học viên (định dạng HV-XXXX):");
-        if (!checkID(id)) {
-            alert("Mã học viên không hợp lệ hoặc đã tồn tại.");
-            return;
+        let id;
+        while (true) {
+            id = prompt("Nhập mã học viên (định dạng HV-XXXX):");
+            if (checkID(id)) break;
+            alert("Mã học viên không hợp lệ hoặc đã tồn tại. Vui lòng nhập lại.");
         }
 
-        let name = prompt("Nhập tên học viên (tối đa 50 ký tự):");
-        if (name.length > 50 || name === "") {
-            alert("Tên học viên không hợp lệ.");
-            return;
+        let name;
+        while (true) {
+            name = prompt("Nhập tên học viên (tối đa 50 ký tự):");
+            if (name.length <= 50 && name !== "") break;
+            alert("Tên học viên không hợp lệ. Vui lòng nhập lại.");
         }
 
         let className = prompt("Nhập lớp học viên:");
         let email = prompt("Nhập email học viên:");
-        let birthDay = prompt("Nhập ngày sinh (định dạng dd/mm/yyyy):");
-        if (!checkBirthday(birthDay)) {
-            alert("Ngày sinh không hợp lệ.");
-            return;
+
+        let birthDay;
+        while (true) {
+            birthDay = prompt("Nhập ngày sinh (định dạng dd/mm/yyyy):");
+            if (checkBirthday(birthDay)) break;
+            alert("Ngày sinh không hợp lệ. Vui lòng nhập lại.");
         }
 
-        let module = prompt("Nhập module (1-6):");
-        if (module < 1 || module > 6 || isNaN(module)) {
-            alert("Module không hợp lệ.");
-            return;
+        let module;
+        while (true) {
+            module = prompt("Nhập module (1-6):");
+            if (module >= 1 && module <= 6 && !isNaN(module)) break;
+            alert("Module không hợp lệ. Vui lòng nhập lại.");
         }
 
         studentList.push(new Student(id, name, className, email, birthDay, module));
@@ -91,31 +96,34 @@
     }
 
     function editStudent() {
-        let id = prompt("Nhập mã học viên cần sửa:");
-        let student = studentList.find(s => s.id === id); // Tìm học viên theo mã
-        if (!student) {
-            alert("Không tìm thấy mã học viên.");
-            return;
+        let id;
+        let student;
+        while (true) {
+            id = prompt("Nhập mã học viên cần sửa:");
+            student = studentList.find(s => s.id === id);
+            if (student) break;
+            alert("Không tìm thấy mã học viên. Vui lòng nhập lại.");
         }
 
-        student.name = prompt(`Nhập tên mới (tối đa 50 ký tự):`, student.name);
-        if (student.name.length > 50 || student.name === "") {
-            alert("Tên học viên không hợp lệ.");
-            return;
+        while (true) {
+            student.name = prompt("Nhập tên mới (tối đa 50 ký tự):", student.name);
+            if (student.name.length <= 50 && student.name !== "") break;
+            alert("Tên học viên không hợp lệ. Vui lòng nhập lại.");
         }
 
         student.className = prompt("Nhập lớp mới:", student.className);
         student.email = prompt("Nhập email mới:", student.email);
-        student.birthDay = prompt("Nhập ngày sinh mới (dd/mm/yyyy):", student.birthDay);
-        if (!checkBirthday(student.birthDay)) {
-            alert("Ngày sinh không hợp lệ.");
-            return;
+
+        while (true) {
+            student.birthDay = prompt("Nhập ngày sinh mới (dd/mm/yyyy):", student.birthDay);
+            if (checkBirthday(student.birthDay)) break;
+            alert("Ngày sinh không hợp lệ. Vui lòng nhập lại.");
         }
 
-        student.module = prompt("Nhập module mới (1-6):", student.module);
-        if (student.module < 1 || student.module > 6 || isNaN(student.module)) {
-            alert("Module không hợp lệ.");
-            return;
+        while (true) {
+            student.module = prompt("Nhập module mới (1-6):", student.module);
+            if (student.module >= 1 && student.module <= 6 && !isNaN(student.module)) break;
+            alert("Module không hợp lệ. Vui lòng nhập lại.");
         }
 
         alert("Cập nhật thông tin thành công!");
@@ -123,31 +131,23 @@
     }
 
     function deleteStudent() {
-        let id = prompt("Nhập mã học viên cần xóa:");
-        let index = studentList.findIndex(s => s.id === id);
-        if (index === -1) {
-            alert("Không tìm thấy mã học viên.");
-            return;
+        let id;
+        while (true) {
+            id = prompt("Nhập mã học viên cần xóa:");
+            if (studentList.some(s => s.id === id)) break;
+            alert("Không tìm thấy mã học viên. Vui lòng nhập lại.");
         }
 
         let confirmDelete = confirm("Bạn có chắc muốn xóa học viên này?");
         if (confirmDelete) {
-            studentList.splice(index, 1);
+            studentList = studentList.filter(s => s.id !== id);
             alert("Xóa học viên thành công!");
             displayStudents();
         }
     }
 
     function checkID(id) {
-        if (id.length !== 7) {
-            return false; // Độ dài không đúng
-        }
-
-        if (id[0] !== 'H' || id[1] !== 'V') {
-            return false;
-        }
-
-        if (id[2] !== '-') {
+        if (id.length !== 7 || id[0] !== 'H' || id[1] !== 'V' || id[2] !== '-') {
             return false;
         }
 
@@ -157,19 +157,8 @@
             }
         }
 
-        return true;
-    }
-
-
-    let numberPart = id.substring(3);
-        for (let char of numberPart) {
-            if (char < '0' || char > '9') {
-                return false;
-            }
-        }
-
-        for (let student of studentList) {
-            if (student.id === id) {
+        for (let i = 0; i < studentList.length; i++) {
+            if (studentList[i].id === id) {
                 return false;
             }
         }
