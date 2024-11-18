@@ -11,7 +11,7 @@
         let n;
 
         do {
-            n = parseInt(prompt("Enter the length of the array (even number):"));
+            n = parseInt(prompt("Enter the length of the array:"));
         } while (isNaN(n) || n % 2 !== 0);
         for (let i = 0; i < n; i++) {
             let element = parseInt(prompt("Enter element " +(i + 1)));
@@ -20,15 +20,13 @@
 
         return arr;
     }
-
     function checkArray(arr) {
         for (let i = 0; i < arr.length - 1; i += 2) {
             if (arr[i] >= arr[i + 1]) {
                 return "NO";
             }
         }
-        return "OK";
-    }
+        return "OK";}
 
     let array = inputArray();
     console.log("Array after input:", array);
