@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isLeapYear(year) {
+        return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+    }
+
+    function getDayAndMonth(month, year) {
+        if (month === 1 || month === 3 || month === 5 || month === 7 || month === 8 || month === 10 || month === 12) {
+            return 31;
+        } else if (month === 4 || month === 6 || month === 9 || month === 11) {
+            return 30;
+        } else if (month === 2) {
+            return isLeapYear(year) ? 29 : 28;
+        } else {
+            return -1; // nếu tháng không hợp lệ thì retunr về -1
+        }
+    }
+
+    let input;
+    do {
+        input = prompt("Nhập tháng và năm (MM/yyyy):");
+
+        let parts = input.split("/");
+
+        if (parts.length !== 2) {
+            alert("Định dạng không hợp lệ.");
+            continue;
+        }
+
+        let month = parseInt(parts[0]);
+        let year = parseInt(parts[1]);
+
+        if (isNaN(month) || isNaN(year) || month < 1 || month > 12 || year <= 0) {
+            alert("Tháng hoặc năm không hợp lệ.");
+            continue;
+        }
+
+        let days = getDayAndMonth(month, year);
+        if (days === -1) {
+            alert("Tháng không hợp lệ.");
+        } else {
+            alert("Tháng " + month + "/" + year + " có " + days + " ngày.");
+            break;
+        }
+    } while (true);
+</script>
+</body>
+</html>

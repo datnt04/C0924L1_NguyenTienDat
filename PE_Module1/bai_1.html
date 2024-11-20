@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai1</title>
+</head>
+<body>
+<script>
+  function inputArray() {
+    let array = [];
+    let n;
+
+    do {
+      n = prompt("Nhập số lượng phần tử :");
+    } while (isNaN(n) || n <= 0 || n > 50 || n % 1 !== 0);
+
+    for (let i = 0; i < n; i++) {
+      let num = prompt("Nhập phần tử thứ " + (i + 1) + ":");
+      array.push(num);
+    }
+
+    return array;
+  }
+
+  function calculateAverage(array) {
+    let sum = 0;
+    let count = 0;
+
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] % 3 === 0) {
+        sum += array[i];
+        count++;
+      }
+    }
+
+    if (count > 0) {
+      return sum / count;
+    } else {
+      return "không có số nào trong mảng chia hết cho 3.";
+    }
+  }
+
+  let array = inputArray();
+  console.log("Mảng sau khi nhập là :", array);
+  let result = calculateAverage(array);
+  console.log("Trung bình cộng các số chia hết cho 3 là :", result);
+</script>
+</body>
+</html>

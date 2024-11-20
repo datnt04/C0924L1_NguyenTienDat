@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số nguyên tố</title>
+</head>
+<body>
+<script>
+    function isPerfectNumber(num) {
+        if (num <= 0) return false;
+
+        let sum = 0;
+
+        for (let i = 1; i < num; i++) {
+            if (num % i === 0) {
+                sum += i;
+            }
+        }
+
+        return sum === num;
+    }
+
+    let number;
+    do {
+        number = prompt("Nhập một số nguyên dương:");
+
+        if ( number <= 0) {
+            alert("Vui lòng nhập một số nguyên dương hợp lệ.");
+        }
+    } while (isNaN(number) || number <= 0 || number % 1 !== 0);
+
+    let result = isPerfectNumber(number);
+    console.log("Kết quả:", result);
+</script>
+</body>
+</html>
